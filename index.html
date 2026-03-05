@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Фулерен – Энергия и Возможность</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== ДВИЖУЩИЙСЯ ФОН ===== */
+
+body{
+margin:0;
+font-family:'Roboto',sans-serif;
+color:white;
+background:linear-gradient(-45deg,#0f9b0f,#00c853,#2ecc71,#0f9b0f);
+background-size:400% 400%;
+animation:bgMove 12s infinite ease;
+overflow-x:hidden;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* ===== ПЛАВАЮЩИЕ МОЛЕКУЛЫ ===== */
+
+.molecule{
+position:absolute;
+width:220px;
+opacity:0.15;
+animation:float 18s infinite linear;
+}
+
+.m1{top:5%;left:10%}
+.m2{top:60%;left:80%}
+.m3{top:30%;left:50%}
+.m4{top:80%;left:20%}
+
+@keyframes float{
+0%{transform:translateY(0) rotate(0)}
+50%{transform:translateY(-50px) rotate(180deg)}
+100%{transform:translateY(0) rotate(360deg)}
+}
+
+/* ===== HEADER ===== */
+
+header{
+text-align:center;
+padding:120px 20px;
+}
+
+header h1{
+font-size:3.2rem;
+margin-bottom:20px;
+text-shadow:0 0 20px #00ff88;
+animation:titleGlow 3s infinite alternate;
+}
+
+@keyframes titleGlow{
+from{text-shadow:0 0 10px #00ff88}
+to{text-shadow:0 0 35px #00ff88}
+}
+
+header p{
+max-width:700px;
+margin:auto;
+font-size:1.2rem;
+margin-bottom:40px;
+color:#eaffea;
+}
+
+/* ===== КНОПКА ===== */
+
+header button{
+padding:18px 50px;
+font-size:1.1rem;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-weight:bold;
+color:white;
+background:linear-gradient(45deg,#00ff88,#00c853);
+box-shadow:0 0 20px #00ff88;
+animation:pulse 2s infinite;
+transition:0.3s;
+}
+
+header button:hover{
+transform:scale(1.1);
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 10px #00ff88}
+50%{box-shadow:0 0 35px #00ff88}
+100%{box-shadow:0 0 10px #00ff88}
+}
+
+/* ===== СЕКЦИЯ ПРОДУКТОВ ===== */
+
+.products{
+padding:100px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.products h2{
+text-align:center;
+font-size:2.6rem;
+margin-bottom:60px;
+}
+
+/* ===== GRID ===== */
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:35px;
+}
+
+/* ===== КАРТОЧКИ ===== */
+
+.product-card{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+border-radius:20px;
+overflow:hidden;
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.product-card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.product-card:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px #00ff88;
+}
+
+.product-card img{
+width:100%;
+}
+
+.product-card .info{
+padding:20px;
+}
+
+.product-card h3{
+color:#a5ffb3;
+}
+
+.product-card p{
+color:#eaffea;
+font-size:0.95rem;
+}
+
+/* ===== ФУТЕР ===== */
+
+footer{
+background:#111;
+text-align:center;
+padding:50px;
+margin-top:80px;
+}
+
+</style>
+</head>
+
+<body>
+
+<img class="molecule m1" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/C60-buckminsterfullerene-3D-balls.png">
+<img class="molecule m2" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/C60-buckminsterfullerene-3D-balls.png">
+<img class="molecule m3" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/C60-buckminsterfullerene-3D-balls.png">
+<img class="molecule m4" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/C60-buckminsterfullerene-3D-balls.png">
+
+<header>
+
+<h1>Фулерен – Энергия и Возможность</h1>
+
+<p>
+Откройте для себя продукты с фулереном и возможность заработать через современную реферальную систему.
+</p>
+
+<button onclick="goToBot()">Изучить всё</button>
+
+</header>
+
+<section class="products">
+
+<h2>Наши продукты</h2>
+
+<div class="product-grid">
+
+<div class="product-card">
+<img src="https://shop.full-en.com/assets/img/4.png">
+<div class="info">
+<h3>Косметика</h3>
+<p>Кремы и сыворотки с фулереном для здоровья кожи.</p>
+</div>
+</div>
+
+<div class="product-card"><img src="https://i.okcdn.ru/i?r=CICTQJv1RQZIqEhgaodSfFIWQFrgmRe9WRkTc4osEdbtoMErCrm2ClbMm84aa4LbCPHIyF8YJkoT1GR00yBxeyzGlY6Ehhh5dsaw8Rcr1eJczMU6m_D3chkqG-6GD_5bnqqiwK26igSyvgEH2dKPBVrhxZhRc77WxOB04o1JKj3yKL1wNuO4jCPNcayC6GSWlRXmi-QAAAAp">
+<div class="info">
+<h3>Напитки</h3>
+<p>Энергетические напитки с фулереном.</p>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://avatars.mds.yandex.net/i?id=5c4fdb9cf1f4b5b6d1c04810b7afc6a9f7f986bc-9193117-images-thumbs&n=13">
+<div class="info">
+<h3>Биодобавки</h3>
+<p>Поддержка здоровья и энергии.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Фулерен Продукты
+</footer>
+
+<script>
+
+/* кнопка */
+
+function goToBot(){
+window.location.href="https://t.me/Fullleren_bot"
+}
+
+/* появление карточек */
+
+const cards=document.querySelectorAll(".product-card")
+
+window.addEventListener("scroll",()=>{
+
+cards.forEach(card=>{
+
+const top=card.getBoundingClientRect().top
+const screen=window.innerHeight
+
+if(top<screen-100){
+card.classList.add("show")
+}
+
+})
+
+})
+
+</script>
+
+</body>
+</html>
