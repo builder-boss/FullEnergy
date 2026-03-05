@@ -3,259 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Фулерен – Энергия и Возможность</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>FullEnergy Store — Продукты с фуллереном C60</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* ===== ДВИЖУЩИЙСЯ ФОН ===== */
-
-body{
-margin:0;
-font-family:'Roboto',sans-serif;
-color:white;
-background:linear-gradient(-45deg,#0f9b0f,#00c853,#2ecc71,#0f9b0f);
-background-size:400% 400%;
-animation:bgMove 12s infinite ease;
-overflow-x:hidden;
+/* Основной стиль */
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: #0b0b1e;
+    color: #e0e0e0;
 }
 
-@keyframes bgMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+/* Хедер */
+header {
+    background: linear-gradient(90deg, #0f3d91, #ff00ff);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #0ff, 0 0 30px #ff00ff;
 }
 
-/* ===== ПЛАВАЮЩИЕ МОЛЕКУЛЫ ===== */
-
-.molecule{
-position:absolute;
-width:220px;
-opacity:0.15;
-animation:float 18s infinite linear;
+/* Описание */
+.intro {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #ccc;
+    text-shadow: 0 0 5px #0ff;
 }
 
-.m1{top:5%;left:10%}
-.m2{top:60%;left:80%}
-.m3{top:30%;left:50%}
-.m4{top:80%;left:20%}
-
-@keyframes float{
-0%{transform:translateY(0) rotate(0)}
-50%{transform:translateY(-50px) rotate(180deg)}
-100%{transform:translateY(0) rotate(360deg)}
+/* Сетка продуктов */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: auto;
 }
 
-/* ===== HEADER ===== */
-
-header{
-text-align:center;
-padding:120px 20px;
+/* Карточка */
+.product {
+    background: #11112a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255,0,255,0.3), 0 0 30px rgba(0,255,255,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Кнопка всегда внизу */
+}
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(255,0,255,0.6), 0 0 50px rgba(0,255,255,0.6);
 }
 
-header h1{
-font-size:3.2rem;
-margin-bottom:20px;
-text-shadow:0 0 20px #00ff88;
-animation:titleGlow 3s infinite alternate;
+/* Анимация появления */
+@keyframes floatUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.product {
+    animation: floatUp 0.8s ease forwards;
 }
 
-@keyframes titleGlow{
-from{text-shadow:0 0 10px #00ff88}
-to{text-shadow:0 0 35px #00ff88}
+/* Изображение */
+.product img {
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+    transition: transform 0.3s;
+}
+.product:hover img {
+    transform: scale(1.05);
 }
 
-header p{
-max-width:700px;
-margin:auto;
-font-size:1.2rem;
-margin-bottom:40px;
-color:#eaffea;
+/* Информация */
+.product-info {
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Растягиваем блок до одинаковой высоты */
+}
+.product-info h3 {
+    color: #ff00ff;
+    margin: 8px 0;
+    font-size: 22px;
+    text-shadow: 0 0 10px #ff00ff;
+}
+.product-info p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 8px #0ff;
 }
 
-/* ===== КНОПКА ===== */
-
-header button{
-padding:18px 50px;
-font-size:1.1rem;
-border:none;
-border-radius:50px;
-cursor:pointer;
-font-weight:bold;
-color:white;
-background:linear-gradient(45deg,#00ff88,#00c853);
-box-shadow:0 0 20px #00ff88;
-animation:pulse 2s infinite;
-transition:0.3s;
+/* Кнопка */
+.btn-buy {
+    margin-top: auto; /* Прижимаем кнопку к низу карточки */
+    padding: 14px 24px;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    color: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+}
+.btn-buy:hover {
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+    transform: scale(1.05);
 }
 
-header button:hover{
-transform:scale(1.1);
+/* Футер */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+    color: #888;
+    text-shadow: 0 0 5px #0ff;
+    margin-top: 40px;
+    border-top: 1px solid #444;
 }
-
-@keyframes pulse{
-0%{box-shadow:0 0 10px #00ff88}
-50%{box-shadow:0 0 35px #00ff88}
-100%{box-shadow:0 0 10px #00ff88}
-}
-
-/* ===== СЕКЦИЯ ПРОДУКТОВ ===== */
-
-.products{
-padding:100px 20px;
-max-width:1200px;
-margin:auto;
-}
-
-.products h2{
-text-align:center;
-font-size:2.6rem;
-margin-bottom:60px;
-}
-
-/* ===== GRID ===== */
-
-.product-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:35px;
-}
-
-/* ===== КАРТОЧКИ ===== */
-
-.product-card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
-border-radius:20px;
-overflow:hidden;
-transition:0.4s;
-opacity:0;
-transform:translateY(40px);
-}
-
-.product-card.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.product-card:hover{
-transform:scale(1.05);
-box-shadow:0 0 30px #00ff88;
-}
-
-.product-card img{
-width:100%;
-}
-
-.product-card .info{
-padding:20px;
-}
-
-.product-card h3{
-color:#a5ffb3;
-}
-
-.product-card p{
-color:#eaffea;
-font-size:0.95rem;
-}
-
-/* ===== ФУТЕР ===== */
-
-footer{
-background:#111;
-text-align:center;
-padding:50px;
-margin-top:80px;
-}
-
 </style>
 </head>
-
 <body>
 
-<img class="molecule m1" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/C60-buckminsterfullerene-3D-balls.png">
-<img class="molecule m2" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/C60-buckminsterfullerene-3D-balls.png">
-<img class="molecule m3" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/C60-buckminsterfullerene-3D-balls.png">
-<img class="molecule m4" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/C60-buckminsterfullerene-3D-balls.png">
+<header>FullEnergy Store — Продукты с фуллереном C60</header>
 
-<header>
-
-<h1>Фулерен – Энергия и Возможность</h1>
-
-<p>
-Откройте для себя продукты с фулереном и возможность заработать через современную реферальную систему.
-</p>
-
-<button onclick="goToBot()">Изучить всё</button>
-
-</header>
-
-<section class="products">
-
-<h2>Наши продукты</h2>
-
-<div class="product-grid">
-
-<div class="product-card">
-<img src="https://shop.full-en.com/assets/img/4.png">
-<div class="info">
-<h3>Косметика</h3>
-<p>Кремы и сыворотки с фулереном для здоровья кожи.</p>
-</div>
+<div class="intro">
+    <p>В нашем неоновом магазине собраны все 9 основных продуктов FullEnergy с фуллереном С60. Переходи по кнопке «Купить» и оформи заказ на официальном сайте через твою реферальную ссылку.</p>
 </div>
 
-<div class="product-card"><img src="https://i.okcdn.ru/i?r=CICTQJv1RQZIqEhgaodSfFIWQFrgmRe9WRkTc4osEdbtoMErCrm2ClbMm84aa4LbCPHIyF8YJkoT1GR00yBxeyzGlY6Ehhh5dsaw8Rcr1eJczMU6m_D3chkqG-6GD_5bnqqiwK26igSyvgEH2dKPBVrhxZhRc77WxOB04o1JKj3yKL1wNuO4jCPNcayC6GSWlRXmi-QAAAAp">
-<div class="info">
-<h3>Напитки</h3>
-<p>Энергетические напитки с фулереном.</p>
-</div>
-</div>
+<div class="products">
 
-<div class="product-card">
-<img src="https://avatars.mds.yandex.net/i?id=5c4fdb9cf1f4b5b6d1c04810b7afc6a9f7f986bc-9193117-images-thumbs&n=13">
-<div class="info">
-<h3>Биодобавки</h3>
-<p>Поддержка здоровья и энергии.</p>
-</div>
-</div>
+    <!-- 1. Фуллерен C60 — Утро -->
+    <div class="product">
+        <img src="https://avatars.mds.yandex.net/i?id=1e876fe5be99a7f8aa062499a736daa9_l-4987702-images-thumbs&n=13" alt= "Фуллерен C60 Утро">
+        <div class="product-info">
+            <h3>Фуллерен C60 «Утро»</h3>
+            <p>Конопляное масло + С60 для энергии</p>
+            <p class="price">≈4400 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
+
+    <!-- 2. Фуллерен C60 — День -->
+    <div class="product">
+        <img src="https://aur-um-eco.com/wp-content/uploads/2025/10/4344276585.jpeg" alt="Фуллерен C60 День">
+        <div class="product-info">
+            <h3>Фуллерен C60 «День»</h3>
+            <p>Оливковое масло + С60 для защиты</p>
+            <p class="price">≈4400 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
+
+    <!-- 3. Фуллерен C60 — Ночь -->
+    <div class="product">
+        <img src="https://aur-um-eco.com/wp-content/uploads/2025/10/43442745.jpeg" alt="Фуллерен C60 Вечер">
+        <div class="product-info">
+            <h3>Фуллерен C60 «Вечер»</h3>
+            <p>Тыквенное масло + С60 для восстановления</p>
+            <p class="price">≈4400 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
+
+    <!-- 4. Aqua Power C60 -->
+    <div class="product">
+        <img src="https://sun9-54.userapi.com/s/v1/ig2/jIgwdTehfWvGgSD7_XaxMpIGBC95SW6wulgLwns9Rya2Sd1qnq_iljMibFl19EVN0K1AB4Gdx2zUfYncasmnyerS.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,818x818&from=bu&cs=818x0" alt="Aqua Power C60">
+        <div class="product-info">
+            <h3>Aqua Power C60</h3>
+            <p>Водорастворимый фуллерен</p>
+            <p class="price">≈4400 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
+
+    <!-- 5. Гель с фуллереном C60 -->
+    <div class="product">
+        <img src="https://sun9-24.userapi.com/s/v1/ig2/-JwzOnzTW2OJvAopfGlS3Bs36i8XWjOxXamhzyAFo_68T71MuhHP386R4RXf-IzXmmw6m6FEDXmRSiKwuLF4NjQf.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,818x818&from=bu&cs=818x0" alt="Гель с фуллереном C60">
+        <div class="product-info">
+            <h3>Гель с фуллереном C60</h3>
+            <p>Уход за кожей</p>
+            <p class="price">≈3800 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
+
+    <!-- 6. Serum C60 -->
+    <div class="product">
+        <img src="https://sun9-73.userapi.com/s/v1/ig2/cF0uhNdFpidrTzivWdZkkP9e_khDi4P2ss6dXYSEWTVyGdAz01JpmNe1iV9Kb32sIVsXmbVdzuPw-VJu3H1mirkd.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,818x818&from=bu&cs=818x0" alt="Serum с фуллереном C60">
+        <div class="product-info">
+            <h3>Сыворотка C60 Serum</h3>
+            <p>Антивозрастная сыворотка</p>
+            <p class="price">≈4100 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
+
+    <!-- 7. Крем‑бальзам ActiveFull -->
+    <div class="product">
+        <img src="https://sun9-54.userapi.com/s/v1/ig2/f9in13SJagZSVj1PVaUZ7qIz_4xY_yerbzwbq9YNBrPpdNENdDPmZ22ZFUm3Zr-VXxp4KVmpuOgtQ84GDxmeG0SE.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,818x818&from=bu&cs=818x0" alt="Крем‑бальзам ActiveFull">
+        <div class="product-info">
+            <h3>Крем‑бальзам ActiveFull</h3>
+            <p>Увлажнение и восстановление кожи</p>
+            <p class="price">≈3900 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
+
+    <!-- 8. Крем для рук BeautyOnFull -->
+    <div class="product">
+        <img src="https://sun9-58.userapi.com/s/v1/ig2/FUimet6CEybIlpcAiy-DYfYGqWnFIeo9U1w2AXE10w8jD-SfcR2f6J_cHty93THUYQY9yVSPJ1INncPiYIdACAOZ.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,818x818&from=bu&cs=818x0" alt="Крем для рук BeautyOnFull">
+        <div class="product-info">
+            <h3>Крем для рук BeautyOnFull</h3>
+            <p>Питание и защита рук</p>
+            <p class="price">≈3200 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
+
+    <!-- 9. Спрей для волос BeautyOnFull -->
+    <div class="product">
+        <img src="https://sun9-82.userapi.com/s/v1/ig2/9ahPUFTN_Chj1DAXZ0q-VfAUgLrLeq9w9kcgTsFWp0Fwwej2QR_YmpHmRkTN9OyJ5BeoVSNOna88VxPwULXu-xKV.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,818x818&from=bu&cs=818x0" alt="Спрей для волос BeautyOnFull">
+        <div class="product-info">
+            <h3>Спрей для волос BeautyOnFull</h3>
+            <p>Антиоксидантная защита волос</p>
+            <p class="price">≈3500 ₽</p>
+            <a class="btn-buy" href="https://fulleren.com/?ref=ВАША_ССЫЛКА" target="_blank">Купить</a>
+        </div>
+    </div>
 
 </div>
-
-</section>
 
 <footer>
-© 2026 Фулерен Продукты
+    &copy; 2026 FullEnergy Store — энергия, здоровье и долголетие
 </footer>
-
-<script>
-
-/* кнопка */
-
-function goToBot(){
-window.location.href="https://t.me/Fullleren_bot"
-}
-
-/* появление карточек */
-
-const cards=document.querySelectorAll(".product-card")
-
-window.addEventListener("scroll",()=>{
-
-cards.forEach(card=>{
-
-const top=card.getBoundingClientRect().top
-const screen=window.innerHeight
-
-if(top<screen-100){
-card.classList.add("show")
-}
-
-})
-
-})
-
-</script>
 
 </body>
 </html>
